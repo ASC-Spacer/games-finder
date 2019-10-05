@@ -1,0 +1,17 @@
+264 x 374 ratio
+
+
+.tiles article > a:hover h2 { // <---
+    opacity: 1;// <---
+}// <---
+
+.tiles article > a h2 {
+    margin: 0;
+    opacity: 0; // <---
+    transition: max-height 0.5s ease, opacity 0.5s ease; // <---
+}
+
+
+
+.tiles article > .image img
+    height: calc(100vw*0.30);

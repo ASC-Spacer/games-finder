@@ -1,0 +1,82 @@
+<button style="float:right; display:none;" class="button icon solid fa-star" id="favBut" onclick="addFavorite({{game.id}}, '{{game.name}}')">NON PREFERITO</button>
+<h1>{{game.name}}</h1>
+
+{{!-- se esiste il video lo faccio vedere --}}
+{{#if game.videos}}
+<iframe style="width:100%; height: 60vw; max-height: 70vh;" src="https://www.youtube.com/embed/{{game.videos}}?controls=0&autoplay=1&mute=1" frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{{/if}}
+<div id="container">
+    <div id="sinistra">
+        <h2><i class="fas fa-file-alt"></i>DESCRIZIONE</h2>
+        <p>{{game.summary}}</p>
+    </div>
+    <div id="destra">
+        <h2><i class="fas fa-dice"></i>GENERE</h2>
+        {{#if game.genres}}
+            <p>{{game.genres}}</p>
+        {{else}}
+            <p>/</p>
+        {{/if}}
+
+        <h2><i class="fas fa-desktop"></i>PIATTAFORME</h2>
+        {{#if game.platforms}}
+            <p>{{game.platforms}}</p>
+        {{else}}
+            <p>/</p>
+        {{/if}}
+
+        <h2><i class="fas fa-calendar-times"></i>DATA DI USCITA</h2>
+        {{#if game.release_dates}}
+            <p>{{game.release_dates}}</p>
+        {{else}}
+            <p>/</p>
+        {{/if}}
+
+        <h2><i class="fas fa-code"></i>SVILUPPATORE</h2>
+        {{#if game.involved_companies}}
+            <p>{{game.involved_companies}}</p>
+        {{else}}
+            <p>/</p>
+        {{/if}}
+
+        <h2><i class="fas fa-network-wired"></i>SITO UFFICIALE</h2>
+        {{#if game.websites}}
+            <a href="{{game.websites}}">{{game.websites}}</a>
+        {{else}}
+            <p>/</p>
+        {{/if}}
+    </div>
+</div>
+
+{{!-- mostro se il gioco è tra i preferiti o meno --}}
+<script type="text/javascript">
+    function addFavorite(id, name){
+        let fav = localStorage.getItem('favorites');
+        if(fav == null)
+            fav = {};
+        else
+            fav = JSON.parse(fav);
+        if(id in fav){
+            delete fav[id];
+            $("#favBut").text("Non preferito").removeClass("primary");
+        }else{
+            fav[id] = name;
+            $("#favBut").text("PREFERITO").addClass("primary");
+        }
+        localStorage.setItem('favorites', JSON.stringify(fav));
+    }
+
+    {{!-- mostro solo quando ho caricato lo stato --}}
+    window.onload = function () {
+        let fav = localStorage.getItem('favorites');
+        if(fav == null)
+            fav = {};
+        else
+            fav = JSON.parse(fav);
+        if({{game.id}} in fav)
+            $("#favBut").text("PREFERITO").addClass("primary");
+
+        $("#favBut").show();
+    }
+</script>

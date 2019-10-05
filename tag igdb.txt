@@ -1,0 +1,26 @@
+ENDPOINT PER QUERY
+rating
+rating_count
+aggregated_rating --> voti critica
+aggregated_rating_count
+name
+pulse_count
+
+ENDPOINT PER GIOCHI
+name
+genres
+cover
+
+ENDPOINT PER INFO
+first_release_date --> prima uscita nel mondo
+platforms --> piattaforme di uscita
+*screenshots --> foto
+*summary --> descrizione
+*videos --> video
+involved_companies --> sviluppatori
+websites --> siti associati
+*genres --> generi
+
+
+
+

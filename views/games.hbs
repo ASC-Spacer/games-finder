@@ -1,0 +1,17 @@
+<h1>{{title}}</h1>
+
+<section class="tiles">
+    {{#each games}}
+        <article class="style1">
+		<span class="image">
+			<img src="{{cover}}" alt="" />
+		</span>
+            <a href="/game/{{id}}">
+                <h2>{{name}}</h2>
+                <div class="content">
+                    <p>{{genres}}</p>
+                </div>
+            </a>
+        </article>
+    {{/each}}
+</section>

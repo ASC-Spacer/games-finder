@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html xmlns:style="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>{{title}}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/stylesheets/main.css" />
+		<noscript><link rel="stylesheet" href="/stylesheets/noscript.css" /></noscript>
+
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="/" class="logo">
+                                    <!-- <span class="symbol"><img src="/images/logo.svg" alt="" /></span><span class="title">Games Finder</span> -->
+                                    <i class="fas fa-gamepad"></i><span class="title">Games Finder</span>
+                                </a>
+
+                            <!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h1>Menu</h1>
+						<ul class="fa-ul">
+							<li><a href="/"><i class="fas fa-medal"></i>&nbspI migliori</a></li>
+                            <li><a href="/popular"><i class="fas fa-fire"></i>&nbsp&nbspI più popolari</a></li>
+                            <li><a href="/hype"><i class="fas fa-clock"></i>&nbspI più attesi</a></li>
+                            <li><a href="/favorites"><i class="fas fa-star"></i>&nbspI tuoi preferiti</a></li>
+                            <li>
+                                <form action="/search">
+                                    <!-- <i class="fas fa-search" style="display: inline; float: left; vertical-align: middle; width: 20%"></i> -->
+                                    <input style="display: inline; width: 73%" type="text" name="txtRicerca" id="txtRicerca" value="" placeholder="Ricerca" />
+                                    <input style="display: inline" type="submit" value="OK" class="primary" />
+                                    <!-- <button style="display: inline; float: right; width: 20%" class="primary" type="submit"><i class="fas fa-search"></i></button> -->
+                                </form>
+                            </li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							{{{body}}}
+                        </div>
+                    </div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+                            <h2 id="nome">Manuele Dentello | SSRI Crema</h2>
+						</div>
+					</footer>
+			</div>
+
+        <script src="/javascripts/jquery.min.js"></script>
+        <script src="/javascripts//browser.min.js"></script>
+        <script src="/javascripts//breakpoints.min.js"></script>
+        <script src="/javascripts//util.js"></script>
+        <script src="/javascripts//main.js"></script>
+
+	</body>
+</html>

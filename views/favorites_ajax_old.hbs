@@ -1,0 +1,35 @@
+<h1>{{title}}</h1>
+
+<section id="gamesTiles" class="tiles">
+</section>
+
+<script type="text/javascript">
+    window.onload = function () {
+        let fav = localStorage.getItem('favorites');
+        if(fav == null)
+            fav = {};
+        else
+            fav = JSON.parse(fav);
+
+        $.getJSON("/api/favorites?id="+Object.keys(fav).join(","))
+                .done(function(games) {
+                    for(gx in games){
+                        $("#gamesTiles").append("<article class=\"style1\">\n" +
+                                "\t\t<span class=\"image\">\n" +
+                                "\t\t\t<img src=\""+games[gx].cover+"\" alt=\"\" />\n" +
+                                "\t\t</span>\n" +
+                                "            <a href=\"/game/"+games[gx].id+"\">\n" +
+                                "                <h2>"+games[gx].name+"</h2>\n" +
+                                "                <div class=\"content\">\n" +
+                                "                    <p>"+games[gx].genres.join(", ")+"</p>\n" +
+                                "                </div>\n" +
+                                "            </a>\n" +
+                                "        </article>\n");
+                    }
+                })
+                .fail(function() {
+                    alert("Errore!")
+                });
+    }
+
+</script>
