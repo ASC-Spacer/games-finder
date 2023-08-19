@@ -8,10 +8,16 @@
     window.onload = function () {
         if ("{{apiFunction}}" == "/api/favorites")
         {
-            let fav = localStorage.getItem('favorites');
-            if (fav == null)
-                fav = {};
+            let fav = localStorage.getItem('favorites');            //localstorage è dentro window
+            if (fav == null || fav == '{}') {
+                //fav = {};
+                $("#gamesTiles").append("<article class=\"style1\">\n" +
+                                    "                <h2>non ci sono preferiti</h2>\n" +
+                                    "        </article>\n");
+
+            }
             else
+            {
                 fav = JSON.parse(fav);
 
             $.getJSON("{{{apiFunction}}}?id=" + Object.keys(fav).join(","))
@@ -33,6 +39,7 @@
                     .fail(function () {
                         alert("Errore!")
                     });
+            }
         }
         else {
             $.getJSON("{{{apiFunction}}}")

@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+/*async function main() {*/
 /**
  * Module dependencies.
  */
@@ -8,11 +9,27 @@ var app = require('../app');
 var debug = require('debug')('progettone:server');
 var http = require('http');
 
+
+//const credentials = authentication.auth_to_twitch();
+//console.log("client id da www: " + credentials.client_id);
+//console.log("access token da www: " + authentication.access_token);
+
+//const credentials = /*await*/ authentication.auth_to_twitch();
+//console.log("client id www: " + JSON.stringify(credentials));
+//console.log("client id variabile: " + authentication.client_id);
+
+//authentication.auth_to_twitch().then(result => {
+  //console.log("client id www: " + authentication.client_id);
+//});
+
+
+/* comunicazione con twitch per ottenere token iniziale */
+
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '4000');
 app.set('port', port);
 
 /**
@@ -88,3 +105,7 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+//}
+
+// esecuzione funzioni
+//main();
